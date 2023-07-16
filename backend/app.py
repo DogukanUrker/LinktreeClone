@@ -1,9 +1,10 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
 import jwt
 from fastapi.encoders import jsonable_encoder
 from fastapi.middleware.cors import CORSMiddleware
 from secrets import token_urlsafe
-from models import LoginItem
+from models import LoginItem, User
+from database import createUser
 
 app = FastAPI()
 
@@ -28,6 +29,12 @@ app.add_middleware(
     allow_credentials=True,   
 )
 
+@app.post("/api/user/", response_model=User)
+async def postUser(user: User):
+    response = await createUser(user.dict())
+    if response:
+        return response
+    raise HTTPException(400, "Something went wrong")
 
 @app.post("/login")
 async def user_login(loginitem:LoginItem):
@@ -40,3 +47,4 @@ async def user_login(loginitem:LoginItem):
 
         case False:
             return {"message":"login failed"}
+        
