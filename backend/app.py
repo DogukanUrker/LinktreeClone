@@ -1,9 +1,24 @@
 from fastapi import FastAPI
+import jwt
+from fastapi.encoders import jsonable_encoder
 from fastapi.middleware.cors import CORSMiddleware
+from secrets import token_urlsafe
+from models import LoginItem
 
 app = FastAPI()
 
 origins = ["*"]
+
+SECERT_KEY = token_urlsafe(32)
+ALGORITHM = "HS256"
+ACCESS_TOKEN_EXPIRES_MINUTES = 600
+
+
+testUser = {
+   "username": "admin",
+    "password": "0000",
+
+}
 
 app.add_middleware(
     CORSMiddleware,
@@ -14,6 +29,14 @@ app.add_middleware(
 )
 
 
-@app.get("/data")
-def message():
-    return {"message": "This message came from"}
+@app.post("/login")
+async def user_login(loginitem:LoginItem):
+    data = jsonable_encoder(loginitem)
+
+    match data['username'] == testUser['username'] and data['password'] == testUser['password']:
+        case True:
+            encodedJWT = jwt.encode(data, SECERT_KEY, algorithm=ALGORITHM)
+            return {"token": encodedJWT}
+
+        case False:
+            return {"message":"login failed"}
