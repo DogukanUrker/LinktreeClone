@@ -4,7 +4,7 @@ from fastapi.encoders import jsonable_encoder
 from fastapi.middleware.cors import CORSMiddleware
 from secrets import token_urlsafe
 from models import LoginItem, User
-from database import createUser
+from database import createUser,fetchUser
 
 app = FastAPI()
 
@@ -39,12 +39,12 @@ async def postUser(user: User):
 @app.post("/login")
 async def user_login(loginitem:LoginItem):
     data = jsonable_encoder(loginitem)
-
-    match data['username'] == testUser['username'] and data['password'] == testUser['password']:
-        case True:
-            encodedJWT = jwt.encode(data, SECERT_KEY, algorithm=ALGORITHM)
-            return {"token": encodedJWT}
-
-        case False:
-            return {"message":"login failed"}
-        
+    response = await fetchUser(data['username'])
+    if response:
+        match data['username'] == response['username'] and data['password'] == response['password']:
+            case True:
+                print('logined')
+                encodedJWT = jwt.encode(data, SECERT_KEY, algorithm=ALGORITHM)
+                return {"token": encodedJWT}
+            case False:
+                raise HTTPException(404, f"login error")
