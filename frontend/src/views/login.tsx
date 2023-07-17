@@ -25,6 +25,7 @@ export default function Login() {
           }
         })
         .catch(function (error) {
+          alert("user not found");
           console.log(error, "error");
         });
     }
