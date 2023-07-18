@@ -28,8 +28,8 @@ app.add_middleware(
 
 client = MongoClient("mongodb://localhost:27017/", server_api=ServerApi("1"))
 db = client.LinktreeClone
-colUsers = db.user
-colLinks = db.link
+colUsers = db.users
+colLinks = db.links
 
 
 @app.post("/userRegister/", response_model=User)
@@ -64,7 +64,7 @@ async def login(loginitem: LoginItem):
     raise HTTPException(404, f"user not found")
 
 
-@app.put("/addLink", response_model=Link)
+@app.post("/addLink", response_model=Link)
 async def addLink(link: Link):
     colLinks.insert_one(link.dict())
 
