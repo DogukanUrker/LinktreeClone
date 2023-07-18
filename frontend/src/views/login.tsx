@@ -9,7 +9,7 @@ export default function Login() {
   const [password, setPassword] = useState("");
 
   const login = () => {
-    if ((username == "") & (password == "")) {
+    if (username == "" && password == "") {
       return;
     } else {
       axios
@@ -47,14 +47,12 @@ export default function Login() {
                 placeholder="Username"
                 className="block mx-auto my-2 border-2 border-solid border-emerald-400 p-1 rounded transition outline-emerald-700 focus:outline-none focus:ring focus:ring-emerald-400"
               />
-
               <input
                 type="text"
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="Password"
                 className="block mx-auto my-2 border-2 border-solid border-emerald-400 p-1 rounded transition outline-emerald-700 focus:outline-none focus:ring focus:ring-emerald-400"
               />
-
               <button
                 type="button"
                 onClick={login}

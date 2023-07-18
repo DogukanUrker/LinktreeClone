@@ -10,11 +10,11 @@ export default function Register() {
   const [password, setPassword] = useState("");
 
   const addUser = () => {
-    if ((username == "") & (email == "") & (password == "")) {
+    if (username == "" && email == "" && password == "") {
       return;
     } else {
       axios
-        .post("http://localhost:8000/api/user/", {
+        .post("http://localhost:8000/userRegister/", {
           username: username,
           email: email,
           password: password,
