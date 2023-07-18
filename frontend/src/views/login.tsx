@@ -39,7 +39,7 @@ export default function Login() {
             <Navigate to="/" />
           </p>
         ) : (
-          <div className="container mx-auto w-64 p-4 bg-gray-200/50 rounded-2xl">
+          <div className="container mx-auto w-64 p-4 bg-gray-50 rounded-2xl">
             <form className="flex items-stretch flex-wrap">
               <input
                 type="text"
