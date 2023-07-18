@@ -22,7 +22,7 @@ export default function Navbar() {
               sign out
             </button>
             <a
-              className="inline-block py-2 px-6 bg-emerald-500 hover:bg-emerald-600 text-sm text-white font-bold rounded-md transition duration-200"
+              className="inline-block py-2 px-6 bg-indigo-500 hover:bg-indigo-600 text-sm text-white font-bold rounded-md transition duration-200"
               href="/user"
             >
               username
@@ -37,7 +37,7 @@ export default function Navbar() {
               Login
             </a>
             <a
-              className="inline-block py-2 px-6 bg-emerald-500 hover:bg-emerald-600 text-sm text-white font-bold rounded-md transition duration-200"
+              className="inline-block py-2 px-6 bg-indigo-500 hover:bg-indigo-600 text-sm text-white font-bold rounded-md transition duration-200"
               href="/register"
             >
               Sign up

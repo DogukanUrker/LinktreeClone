@@ -41,23 +41,23 @@ export default function Register() {
           <div className="container mx-auto w-64 p-4 bg-gray-200/50 rounded-2xl">
             <form className="flex items-stretch flex-wrap">
               <input
-                className="block mx-auto my-2 border-2 border-solid border-emerald-400 p-1 rounded transition outline-emerald-700 focus:outline-none focus:ring focus:ring-emerald-400"
+                className="block mx-auto my-2 border-2 border-solid border-indigo-400 p-1 rounded transition outline-indigo-700 focus:outline-none focus:ring focus:ring-indigo-400"
                 onChange={(event) => setUsername(event.target.value)}
                 placeholder="Username"
               />
               <input
-                className="block mx-auto my-2 border-2 border-solid border-emerald-400 p-1 rounded transition outline-emerald-700 focus:outline-none focus:ring focus:ring-emerald-400"
+                className="block mx-auto my-2 border-2 border-solid border-indigo-400 p-1 rounded transition outline-indigo-700 focus:outline-none focus:ring focus:ring-indigo-400"
                 onChange={(event) => setEmail(event.target.value)}
                 placeholder="Email"
               />
               <input
-                className="block mx-auto my-2 border-2 border-solid border-emerald-400 p-1 rounded transition outline-emerald-700 focus:outline-none focus:ring focus:ring-emerald-400"
+                className="block mx-auto my-2 border-2 border-solid border-indigo-400 p-1 rounded transition outline-indigo-700 focus:outline-none focus:ring focus:ring-indigo-400"
                 type="password"
                 onChange={(event) => setPassword(event.target.value)}
                 placeholder="Password"
               />
               <button
-                className="block m-auto my-2 bg-emerald-500 p-2 text-base font-medium hover:bg-emerald-600 transition rounded text-slate-50"
+                className="block m-auto my-2 bg-indigo-500 p-2 text-base font-medium hover:bg-indigo-600 transition rounded text-slate-50"
                 type="button"
                 onClick={addUser}
               >
