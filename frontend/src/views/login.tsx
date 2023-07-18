@@ -45,18 +45,18 @@ export default function Login() {
                 type="text"
                 onChange={(e) => setUsername(e.target.value)}
                 placeholder="Username"
-                className="block mx-auto my-2 border-2 text-center border-solid border-indigo-400 p-1 rounded transition outline-indigo-700 focus:outline-none focus:ring focus:ring-indigo-400"
+                className="block mx-auto my-2 border-2 text-center border-solid border-indigo-400 p-1 rounded transition duration-200 outline-indigo-700 focus:outline-none focus:ring focus:ring-indigo-400"
               />
               <input
                 type="text"
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="Password"
-                className="block mx-auto my-2 border-2 text-center border-solid border-indigo-400 p-1 rounded transition outline-indigo-700 focus:outline-none focus:ring focus:ring-indigo-400"
+                className="block mx-auto my-2 border-2 text-center border-solid border-indigo-400 p-1 rounded transition duration-200 outline-indigo-700 focus:outline-none focus:ring focus:ring-indigo-400"
               />
               <button
                 type="button"
                 onClick={login}
-                className="block m-auto my-2 bg-indigo-500 p-2 text-base font-medium hover:bg-indigo-600 transition rounded text-slate-50"
+                className="block m-auto my-2 bg-indigo-500 p-2 text-base font-medium hover:bg-indigo-600 transition duration-200 rounded-md text-slate-50"
               >
                 Login
               </button>
