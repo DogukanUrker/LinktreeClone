@@ -5,6 +5,7 @@ export default function Profile() {
 
   const signOut = () => {
     localStorage.removeItem("Token");
+    localStorage.removeItem("User");
     navigate("/");
   };
 

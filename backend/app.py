@@ -44,7 +44,7 @@ async def login(loginitem: LoginItem):
                 match sha256_crypt.verify(data["password"], response["password"]):
                     case True:
                         encodedJWT = jwt.encode(data, SECERT_KEY, algorithm=ALGORITHM)
-                        return {"token": encodedJWT}
+                        return {"token": encodedJWT, "user":data["username"]}
                     case False:
                         raise HTTPException(404, f"wrong password")
     raise HTTPException(404, f"user not found")

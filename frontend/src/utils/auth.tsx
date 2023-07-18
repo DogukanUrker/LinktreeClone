@@ -4,8 +4,16 @@ export const setToken = (token) => {
   localStorage.setItem("Token", token);
 };
 
+export const setUser = (user) => {
+  localStorage.setItem("User", user);
+};
+
 export const fetchToken = (token) => {
   return localStorage.getItem("Token");
+};
+
+export const fetchUser = (user) => {
+  return localStorage.getItem("User");
 };
 
 export function RequireToken({ children }) {
