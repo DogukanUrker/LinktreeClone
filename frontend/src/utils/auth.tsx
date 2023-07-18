@@ -1,11 +1,11 @@
 import { useLocation, Navigate } from "react-router-dom";
 
 export const setToken = (token) => {
-  localStorage.setItem("randomToken", token);
+  localStorage.setItem("Token", token);
 };
 
 export const fetchToken = (token) => {
-  return localStorage.getItem("randomToken");
+  return localStorage.getItem("Token");
 };
 
 export function RequireToken({ children }) {
