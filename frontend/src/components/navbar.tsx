@@ -1,8 +1,7 @@
 import { useNavigate } from "react-router-dom";
-import { fetchToken } from "../utils/auth";
+import { fetchToken, fetchUser } from "../utils/auth";
 export default function Navbar() {
   const navigate = useNavigate();
-
   const Logout = () => {
     localStorage.removeItem("Token");
     navigate("/");
@@ -23,9 +22,9 @@ export default function Navbar() {
             </button>
             <a
               className="inline-block py-2 px-6 bg-indigo-500 hover:bg-indigo-600 text-sm text-white font-bold rounded-md transition duration-200"
-              href="/user"
+              href="/profile"
             >
-              username
+              {fetchUser()}
             </a>
           </div>
         ) : (
