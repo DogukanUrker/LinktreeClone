@@ -4,8 +4,9 @@ from fastapi.encoders import jsonable_encoder
 from fastapi.middleware.cors import CORSMiddleware
 from secrets import token_urlsafe
 from models import LoginItem, User
-from database import createUser,fetchUser
+from database import createUser, fetchUser
 from passlib.hash import sha256_crypt
+
 app = FastAPI()
 
 origins = ["*"]
@@ -20,8 +21,9 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
     allow_origins=origins,
-    allow_credentials=True,   
+    allow_credentials=True,
 )
+
 
 @app.post("/userRegister/", response_model=User)
 async def userRegister(user: User):
@@ -31,14 +33,15 @@ async def userRegister(user: User):
         return await createUser(user.dict())
     raise HTTPException(400, "This user already exists.")
 
+
 @app.post("/login")
-async def login(loginitem:LoginItem):
+async def login(loginitem: LoginItem):
     data = jsonable_encoder(loginitem)
-    response = await fetchUser(data['username'])
+    response = await fetchUser(data["username"])
     if response:
-        match data['username'] == response['username']:
+        match data["username"] == response["username"]:
             case True:
-                match sha256_crypt.verify(data['password'], response['password']):
+                match sha256_crypt.verify(data["password"], response["password"]):
                     case True:
                         encodedJWT = jwt.encode(data, SECERT_KEY, algorithm=ALGORITHM)
                         return {"token": encodedJWT}
