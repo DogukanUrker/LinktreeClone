@@ -45,13 +45,13 @@ export default function Login() {
                 type="text"
                 onChange={(e) => setUsername(e.target.value)}
                 placeholder="Username"
-                className="block mx-auto my-2 border-2 border-solid border-indigo-400 p-1 rounded transition outline-indigo-700 focus:outline-none focus:ring focus:ring-indigo-400"
+                className="block mx-auto my-2 border-2 text-center border-solid border-indigo-400 p-1 rounded transition outline-indigo-700 focus:outline-none focus:ring focus:ring-indigo-400"
               />
               <input
                 type="text"
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="Password"
-                className="block mx-auto my-2 border-2 border-solid border-indigo-400 p-1 rounded transition outline-indigo-700 focus:outline-none focus:ring focus:ring-indigo-400"
+                className="block mx-auto my-2 border-2 text-center border-solid border-indigo-400 p-1 rounded transition outline-indigo-700 focus:outline-none focus:ring focus:ring-indigo-400"
               />
               <button
                 type="button"
