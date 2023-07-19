@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router";
-import { fetchToken, setToken } from "../utils/auth";
+import { fetchToken, setToken, setUser } from "../utils/auth";
 import { useState } from "react";
 import axios from "axios";
 
@@ -20,10 +20,8 @@ export default function Register() {
           password: password,
         })
         .then(function (response) {
-          console.log(response, "response.data.token");
-
-          setToken(response.data.token);
-          navigate("/profile");
+          console.log(response);
+          navigate("/login");
         })
         .catch(function (error) {
           console.log(error, "error");
