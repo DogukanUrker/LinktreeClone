@@ -25,7 +25,8 @@ app.add_middleware(
 async def addUser(user: User):
     if not UserDB.fetchUser(user.username):
         user.password = sha256_crypt.hash(user.password)
-        return UserDB.addUser(user.dict())
+        UserDB.addUser(user.dict())
+        return user
     raise HTTPException(400, "This user already exists.")
 
 
