@@ -61,11 +61,11 @@ async def addLink(link: Link):
 
 @app.get("/fetchLinks/{username}")
 async def fetchLinks(username):
-    response = LinkDB.fetchLink({"author": username})
-    data = []
-    for i in response:
-        del i["_id"]
-        data.append(dict(i))
-    if data:
-        return data
+    response = LinkDB.fetchLink(username)
+    if response:
+        links = []
+        for i in response:
+            del i["_id"]
+            links.append(i)
+        return links
     raise HTTPException(404, f"data not found")
