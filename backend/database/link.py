@@ -6,4 +6,4 @@ class LinkDB:
         colLinks.insert_one(data)
 
     def fetchLink(username):
-        return colLinks.find_one({"username": username})
+        return colLinks.find({"author": username})
