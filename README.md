@@ -1,2 +1,2 @@
 # LinktreeClone
-in dev⚒️
+link in bio :) <br> [<b> in dev⚒️ </b>] 
