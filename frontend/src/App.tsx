@@ -3,7 +3,6 @@ import Login from "./views/login";
 import Register from "./views/register";
 import Profile from "./views/profile";
 import Edit from "./views/edit";
-import Links from "./views/links";
 import { RequireToken } from "./utils/auth";
 import Navbar from "./components/navbar";
 function App() {
@@ -28,14 +27,6 @@ function App() {
             element={
               <RequireToken>
                 <Edit />
-              </RequireToken>
-            }
-          />
-          <Route
-            path="/links"
-            element={
-              <RequireToken>
-                <Links />
               </RequireToken>
             }
           />
