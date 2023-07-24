@@ -2,6 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import Login from "./views/login";
 import Register from "./views/register";
 import Profile from "./views/profile";
+import Links from "./views/links";
 import Edit from "./views/edit";
 import { RequireToken } from "./utils/auth";
 import Navbar from "./components/navbar";
@@ -14,6 +15,7 @@ function App() {
         <Routes>
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/links" element={<Links />} />
           <Route
             path="/profile"
             element={
