@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useParams } from "react-router-dom";
 import Login from "./views/login";
 import Register from "./views/register";
 import Profile from "./views/profile";
@@ -15,7 +15,9 @@ function App() {
         <Routes>
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/links" element={<Links />} />
+          <Route path="links">
+            <Route path=":userName" element={<Links />} />
+          </Route>
           <Route
             path="/profile"
             element={
