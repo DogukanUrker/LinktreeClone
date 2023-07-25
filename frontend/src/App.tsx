@@ -6,6 +6,7 @@ import Links from "./views/links";
 import Edit from "./views/edit";
 import { RequireToken } from "./utils/auth";
 import Navbar from "./components/navbar";
+import NotFound from "./views/notFound";
 function App() {
   return (
     <>
@@ -13,6 +14,7 @@ function App() {
       <div className="App">
         <Navbar></Navbar>
         <Routes>
+          <Route path="*" element={<NotFound />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="links">
