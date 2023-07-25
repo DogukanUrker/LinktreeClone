@@ -17,7 +17,7 @@ export default function Navbar() {
           {fetchToken() ? (
             <div>
               <button
-                className="inline-block ml-auto mr-3 py-2 px-6 bg-gray-50 hover:bg-gray-100 text-sm text-gray-900 font-bold  rounded-md transition duration-200"
+                className="inline-block ml-auto mr-3 py-2 px-6 bg-gray-50 hover:bg-gray-300 text-sm text-gray-900 font-bold  rounded-md transition duration-200"
                 onClick={Logout}
               >
                 sign out
@@ -32,7 +32,7 @@ export default function Navbar() {
           ) : (
             <div>
               <a
-                className="inline-block ml-auto mr-3 py-2 px-6 bg-gray-50 hover:bg-gray-100 text-sm text-gray-900 font-bold  rounded-md transition duration-200"
+                className="inline-block ml-auto mr-3 py-2 px-6 bg-gray-50 hover:bg-gray-300 text-sm text-gray-900 font-bold  rounded-md transition duration-200"
                 href="/login"
               >
                 Login
