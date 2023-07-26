@@ -28,7 +28,7 @@ export default function Links() {
   return (
     <>
       <div
-        className={`bg-gradient-to-r ${colorL} ${colorR} select-none text-center`}
+        className={`bg-gradient-to-br ${colorL} ${colorR} select-none text-center`}
       >
         <div className="absolute left-[50%] mt-8">
           <h1 className="font-medium text-4xl relative left-[-50%]">
