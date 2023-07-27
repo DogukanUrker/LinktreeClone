@@ -59,6 +59,11 @@ async def addLink(link: Link):
     LinkDB.addLink(link.dict())
 
 
+@app.delete("/deleteLink/{text}")
+async def deleteLink(text):
+    LinkDB.deleteLink(text)
+
+
 @app.get("/fetchLinks/{username}")
 async def fetchLinks(username):
     response = LinkDB.fetchLink(username)
