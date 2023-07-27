@@ -10,7 +10,7 @@ export default function Navbar() {
   if (!url.includes("links")) {
     return (
       <>
-        <nav className="shadow-xl relative px-4 py-4 flex justify-between items-center bg-gradient-to-r from-indigo-500/90 via-purple-500/90 to-pink-600/90 max-w-6xl lg:mx-auto rounded-xl mt-2 mx-2">
+        <nav className="shadow-xl relative px-4 py-4 flex justify-between items-center bg-gradient-to-r from-indigo-500/90 via-purple-500/90 to-pink-600/90 max-w-6xl lg:mx-auto rounded-xl mt-4 mx-2">
           <a className="text-3xl font-bold leading-none" href="/">
             <h1 className="text-white">Linktree Clone</h1>
           </a>
