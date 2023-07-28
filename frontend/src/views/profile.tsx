@@ -8,8 +8,8 @@ export default function Profile() {
   const [data, setData] = useState([]);
   const [link, setLink] = useState("");
   const [text, setText] = useState("");
-  const [bgColor, setBGColor] = useState("#000");
   const [textColor, setTextColor] = useState("#fff");
+  const [bgColor, setBGColor] = useState("#000");
   useEffect(() => {
     axios
       .get(`http://localhost:8000/fetchLinks/${fetchUser()}`)
@@ -31,14 +31,13 @@ export default function Profile() {
               value={link.link}
             />
             <div className="w-fit text-center">
-              <p>Background Color:</p>
-              <HexColorPicker color={link.bgColor} className="m-4 " />
-            </div>
-            <div className="w-fit text-center">
               <p>Text Color:</p>
               <HexColorPicker color={link.textColor} className="m-4 " />
             </div>
-
+            <div className="w-fit text-center">
+              <p>Background Color:</p>
+              <HexColorPicker color={link.bgColor} className="m-4 " />
+            </div>
             <button
               onClick={() => deleteLink(link.text)}
               className="p-2 bg-red-500 rounded-md text-white hover:bg-red-600 transtion duration-150"
@@ -70,8 +69,8 @@ export default function Profile() {
           author: fetchUser(),
           link: link,
           text: text,
-          bgColor: bgColor,
           textColor: textColor,
+          bgColor: bgColor,
         })
         .then(function (response) {
           console.log(response);
@@ -98,22 +97,20 @@ export default function Profile() {
           onChange={(event) => setLink(event.target.value)}
         />
         <div className="w-fit text-center">
-          <p>Background Color:</p>
-          <HexColorPicker
-            color={bgColor}
-            onChange={setBGColor}
-            className="m-4 "
-          />
-          ;
-        </div>
-        <div className="w-fit text-center">
           <p>Text Color:</p>
           <HexColorPicker
             color={textColor}
             onChange={setTextColor}
             className="m-4 "
           />
-          ;
+        </div>
+        <div className="w-fit text-center">
+          <p>Background Color:</p>
+          <HexColorPicker
+            color={bgColor}
+            onChange={setBGColor}
+            className="m-4 "
+          />
         </div>
         <button
           onClick={addLink}
