@@ -2,13 +2,14 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { fetchUser } from "../utils/auth";
 import { useNavigate } from "react-router";
+import { HexColorPicker } from "react-colorful";
 export default function Profile() {
   const navigate = useNavigate();
   const [data, setData] = useState([]);
   const [link, setLink] = useState("");
   const [text, setText] = useState("");
-  const [bgColor, setBGColor] = useState("");
-  const [textColor, setTextColor] = useState("");
+  const [bgColor, setBGColor] = useState("#000");
+  const [textColor, setTextColor] = useState("#fff");
   useEffect(() => {
     axios
       .get(`http://localhost:8000/fetchLinks/${fetchUser()}`)
@@ -18,7 +19,7 @@ export default function Profile() {
     return data.map((link) => {
       return (
         <div>
-          <form>
+          <form className="flex lg:flex-row md:flex-col sm:flex-col justify-evenly items-center">
             <input
               type="text"
               className="w-fit p-2 m-2 border-slate-400 border-2 rounded-md outline-indigo-500"
@@ -29,16 +30,15 @@ export default function Profile() {
               className="w-fit p-2 m-2 border-slate-400 border-2 rounded-md outline-indigo-500"
               value={link.link}
             />
-            <input
-              type="text"
-              className="w-fit p-2 m-2 border-slate-400 border-2 rounded-md outline-indigo-500"
-              value={link.bgColor}
-            />
-            <input
-              type="text"
-              className="w-fit p-2 m-2 border-slate-400 border-2 rounded-md outline-indigo-500"
-              value={link.textColor}
-            />
+            <div className="w-fit text-center">
+              <p>Background Color:</p>
+              <HexColorPicker color={link.bgColor} className="m-4 " />
+            </div>
+            <div className="w-fit text-center">
+              <p>Text Color:</p>
+              <HexColorPicker color={link.textColor} className="m-4 " />
+            </div>
+
             <button
               onClick={() => deleteLink(link.text)}
               className="p-2 bg-red-500 rounded-md text-white hover:bg-red-600 transtion duration-150"
@@ -84,7 +84,7 @@ export default function Profile() {
   };
   const addLinkComponent = () => {
     return (
-      <form>
+      <form className="lg:flex justify-evenly items-center">
         <input
           type="text"
           className="w-fit p-2 m-2 border-slate-400 border-2 rounded-md outline-indigo-500"
@@ -97,18 +97,24 @@ export default function Profile() {
           placeholder="URL"
           onChange={(event) => setLink(event.target.value)}
         />
-        <input
-          type="text"
-          className="w-fit p-2 m-2 border-slate-400 border-2 rounded-md outline-indigo-500"
-          placeholder="Text Color HEX"
-          onChange={(event) => setTextColor(event.target.value)}
-        />
-        <input
-          type="text"
-          className="w-fit p-2 m-2 border-slate-400 border-2 rounded-md outline-indigo-500"
-          placeholder="Background Color HEX"
-          onChange={(event) => setBGColor(event.target.value)}
-        />
+        <div className="w-fit text-center">
+          <p>Background Color:</p>
+          <HexColorPicker
+            color={bgColor}
+            onChange={setBGColor}
+            className="m-4 "
+          />
+          ;
+        </div>
+        <div className="w-fit text-center">
+          <p>Text Color:</p>
+          <HexColorPicker
+            color={textColor}
+            onChange={setTextColor}
+            className="m-4 "
+          />
+          ;
+        </div>
         <button
           onClick={addLink}
           className="p-2 bg-indigo-500 rounded-md text-white hover:bg-indigo-600 transtion duration-150"
