@@ -10,8 +10,8 @@ class Link(BaseModel):
     author: str
     link: str
     text: str
-    bgColor: str
     textColor: str
+    bgColor: str
 
 
 class User(BaseModel):
