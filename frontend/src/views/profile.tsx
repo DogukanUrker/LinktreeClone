@@ -45,7 +45,7 @@ export default function Profile() {
             </div>
             <button
               onClick={() => deleteLink(link.text)}
-              className="p-2 bg-red-500 rounded-md text-white hover:bg-red-600 transtion duration-150"
+              className="p-2 bg-red-500 rounded-md text-white hover:bg-red-600 duration-150"
             >
               Delete
             </button>
@@ -119,7 +119,7 @@ export default function Profile() {
         </div>
         <button
           onClick={addLink}
-          className="p-2 bg-indigo-500 rounded-md text-white hover:bg-indigo-600 transtion duration-150"
+          className="p-2 bg-indigo-500 rounded-md text-white hover:bg-indigo-600 duration-150"
         >
           Add Link
         </button>
@@ -128,7 +128,7 @@ export default function Profile() {
   };
   return (
     <>
-      <div className="w-fit mt-4 text-center mx-auto  text-white  transition duration-200">
+      <div className="w-fit mt-4 text-center mx-auto text-white transition duration-200">
         <a
           href={"/links/" + fetchUser()}
           target="_blank"
@@ -137,7 +137,7 @@ export default function Profile() {
           Links Page
         </a>
         <button
-          className="inline-block ml-2 mr-3 py-2 px-6 bg-gray-50 hover:bg-gray-300 text-sm text-gray-900 font-bold  rounded-md transition duration-200"
+          className="inline-block ml-2 mr-3 py-2 px-6 bg-gray-50 hover:bg-gray-300 text-sm text-gray-900 font-bold rounded-md transition duration-200"
           onClick={Logout}
         >
           sign out
