@@ -1,4 +1,5 @@
 import image from "../assets/iphone14prolinktreeclone.png";
+import Wave from "react-wavify";
 export default function index() {
   return (
     <>
@@ -7,7 +8,7 @@ export default function index() {
           <img
             src={image}
             alt="DogukanUrker's Links"
-            className="w-72 mt-12 lg:w-96 h-fit mb-4"
+            className="lg:mt-8 mt-4 lg:w-96 mb-4 w-[75%] h-[75%] mx-auto md:w-80"
           />
         </a>
       </div>
@@ -20,6 +21,20 @@ export default function index() {
           Click for create custom link page
         </a>
       </div>
+      <Wave
+        fill="#6366F1"
+        style={{
+          display: "flex",
+          marginTop: "0.5rem",
+          height: "7.25rem",
+        }}
+        options={{
+          height: 20,
+          amplitude: 15,
+          speed: 0.15,
+          points: 2,
+        }}
+      />
     </>
   );
 }
