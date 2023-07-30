@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import { gradient } from "../utils/randomGradient";
 export default function Links() {
   let { userName } = useParams();
   const [data, setData] = useState([]);
@@ -28,7 +27,9 @@ export default function Links() {
   return (
     <>
       <div
-        className={`${gradient} select-none text-center grid place-items-center h-screen w-screen`}
+        className={
+          "bg-gradient-to-br from-indigo-500/90 via-purple-500/90 to-pink-600/90 select-none text-center grid place-items-center h-screen w-screen"
+        }
       >
         <div className="w-fit">
           <h1 className="font-semibold text-3xl mb-8 ">{userName}</h1>
