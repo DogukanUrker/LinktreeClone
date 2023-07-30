@@ -1,3 +1,3 @@
 # LinktreeClone
 link in bio :) <br> [<b> in dev⚒️ </b>] 
-![Screenshot_2023-07-26_22-07-14](https://github.com/DogukanUrker/LinktreeClone/assets/62756402/fd12280a-278d-47d7-879e-53e26f5be311)
+![iphone14prolinktreeclone](https://github.com/DogukanUrker/LinktreeClone/assets/62756402/96bd4da3-eeb9-4b6a-b04b-2ed85f0fcdf9)
