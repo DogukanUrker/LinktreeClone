@@ -1,12 +1,5 @@
-import { useNavigate } from "react-router-dom";
 import { fetchToken, fetchUser } from "../utils/auth";
 export default function Navbar() {
-  const navigate = useNavigate();
-  const Logout = () => {
-    localStorage.removeItem("User");
-    localStorage.removeItem("Token");
-    navigate("/");
-  };
   const url = window.location.pathname;
   if (!url.includes("links")) {
     return (
@@ -17,12 +10,6 @@ export default function Navbar() {
           </a>
           {fetchToken() ? (
             <div>
-              <button
-                className="inline-block ml-auto mr-3 py-2 px-6 bg-gray-50 hover:bg-gray-300 text-sm text-gray-900 font-bold  rounded-md transition duration-200"
-                onClick={Logout}
-              >
-                sign out
-              </button>
               <a
                 className="inline-block py-2 px-6 bg-indigo-500 hover:bg-indigo-600 text-sm text-white font-bold rounded-md transition duration-200"
                 href="/profile"
@@ -33,16 +20,10 @@ export default function Navbar() {
           ) : (
             <div>
               <a
-                className="inline-block ml-auto mr-3 py-2 px-6 bg-gray-50 hover:bg-gray-300 text-sm text-gray-900 font-bold  rounded-md transition duration-200"
+                className="inline-block ml-auto mr-3 py-2 px-6 bg-indigo-500 hover:bg-indigo-600 text-white text-sm text-gray-900 font-bold  rounded-md transition duration-200"
                 href="/login"
               >
                 Login
-              </a>
-              <a
-                className="inline-block py-2 px-6 bg-indigo-500 hover:bg-indigo-600 text-sm text-white font-bold rounded-md transition duration-200"
-                href="/register"
-              >
-                Sign up
               </a>
             </div>
           )}

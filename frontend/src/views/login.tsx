@@ -41,14 +41,16 @@ export default function Login() {
             <form className="flex items-stretch flex-wrap">
               <input
                 type="text"
+                autoComplete="new-password"
                 onChange={(e) => setUsername(e.target.value)}
-                placeholder="Username"
+                placeholder="username"
                 className="block mx-auto my-2 border-2 text-center border-solid border-indigo-400 p-1 rounded transition duration-200 outline-indigo-700 focus:outline-none focus:ring focus:ring-indigo-400"
               />
               <input
-                type="text"
+                type="password"
+                autoComplete="new-password"
                 onChange={(e) => setPassword(e.target.value)}
-                placeholder="Password"
+                placeholder="password"
                 className="block mx-auto my-2 border-2 text-center border-solid border-indigo-400 p-1 rounded transition duration-200 outline-indigo-700 focus:outline-none focus:ring focus:ring-indigo-400"
               />
               <button
@@ -58,6 +60,15 @@ export default function Login() {
               >
                 Login
               </button>
+              <div className="mt-1 text-sm text-center w-full">
+                Don't have an account?&ensp;
+                <a
+                  href="/register"
+                  className="text-indigo-500 hover:text-indigo-600 transition duration-150 font-semibold"
+                >
+                  Register
+                </a>
+              </div>
             </form>
           </div>
         )}
