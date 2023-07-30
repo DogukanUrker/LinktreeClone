@@ -38,24 +38,24 @@ export default function Register() {
             <form className="flex items-stretch flex-wrap">
               <input
                 type="text"
+                autoComplete="new-password"
                 className="block mx-auto text-center my-2 border-2 border-solid border-indigo-400 p-1 rounded transition outline-indigo-700 focus:outline-none focus:ring focus:ring-indigo-400"
                 onChange={(event) => setUsername(event.target.value)}
-                placeholder="Username"
-                autoComplete="off"
+                placeholder="username"
               />
               <input
                 type="email"
+                autoComplete="new-password"
                 className="block mx-auto text-center my-2 border-2 border-solid border-indigo-400 p-1 rounded transition duration-200 outline-indigo-700 focus:outline-none focus:ring focus:ring-indigo-400"
                 onChange={(event) => setEmail(event.target.value)}
-                placeholder="Email"
-                autoComplete="off"
+                placeholder="email"
               />
               <input
-                className="block mx-auto text-center my-2 border-2 border-solid border-indigo-400 p-1 rounded transition duration-200 outline-indigo-700 focus:outline-none focus:ring focus:ring-indigo-400"
                 type="password"
+                autoComplete="new-password"
+                className="block mx-auto text-center my-2 border-2 border-solid border-indigo-400 p-1 rounded transition duration-200 outline-indigo-700 focus:outline-none focus:ring focus:ring-indigo-400"
                 onChange={(event) => setPassword(event.target.value)}
-                placeholder="Password"
-                autoComplete="off"
+                placeholder="password"
               />
               <button
                 className="block m-auto my-2 bg-indigo-500 p-2 text-base font-medium hover:bg-indigo-600 transition duration-200 rounded-md text-slate-50"
