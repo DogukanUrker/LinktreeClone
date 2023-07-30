@@ -3,6 +3,7 @@ import { fetchToken, fetchUser } from "../utils/auth";
 export default function Navbar() {
   const navigate = useNavigate();
   const Logout = () => {
+    localStorage.removeItem("User");
     localStorage.removeItem("Token");
     navigate("/");
   };
