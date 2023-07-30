@@ -123,7 +123,12 @@ export default function Profile() {
   };
   return (
     <>
-      <div className="mt-[5%] w-fit mx-auto">
+      <div className="w-fit mt-4 text-center mx-auto bg-indigo-500 hover:bg-indigo-600 text-white rounded-md transition duration-200 p-2">
+        <a href={"/links/" + fetchUser()} target="_blank">
+          Links Page
+        </a>
+      </div>
+      <div className="mt-12 w-fit mx-auto">
         {renderLinks()} {addLinkComponent()}
       </div>
     </>
