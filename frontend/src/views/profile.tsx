@@ -5,6 +5,11 @@ import { useNavigate } from "react-router";
 import { HexColorPicker } from "react-colorful";
 export default function Profile() {
   const navigate = useNavigate();
+  const Logout = () => {
+    localStorage.removeItem("User");
+    localStorage.removeItem("Token");
+    navigate("/");
+  };
   const [data, setData] = useState([]);
   const [link, setLink] = useState("");
   const [text, setText] = useState("");
@@ -19,7 +24,7 @@ export default function Profile() {
     return data.map((link) => {
       return (
         <div>
-          <form className="flex lg:flex-row md:flex-col sm:flex-col justify-evenly items-center">
+          <form className="flex lg:flex-row flex-col justify-evenly items-center mb-4">
             <input
               type="text"
               className="w-fit p-2 m-2 border-slate-400 border-2 rounded-md outline-indigo-500"
@@ -83,7 +88,7 @@ export default function Profile() {
   };
   const addLinkComponent = () => {
     return (
-      <form className="lg:flex justify-evenly items-center">
+      <form className="flex lg:flex-row flex-col justify-evenly items-center">
         <input
           type="text"
           className="w-fit p-2 m-2 border-slate-400 border-2 rounded-md outline-indigo-500"
@@ -123,10 +128,20 @@ export default function Profile() {
   };
   return (
     <>
-      <div className="w-fit mt-4 text-center mx-auto bg-indigo-500 hover:bg-indigo-600 text-white rounded-md transition duration-200 p-2">
-        <a href={"/links/" + fetchUser()} target="_blank">
+      <div className="w-fit mt-4 text-center mx-auto  text-white  transition duration-200">
+        <a
+          href={"/links/" + fetchUser()}
+          target="_blank"
+          className="bg-indigo-500 hover:bg-indigo-600 p-2 rounded-md"
+        >
           Links Page
         </a>
+        <button
+          className="inline-block ml-2 mr-3 py-2 px-6 bg-gray-50 hover:bg-gray-300 text-sm text-gray-900 font-bold  rounded-md transition duration-200"
+          onClick={Logout}
+        >
+          sign out
+        </button>
       </div>
       <div className="mt-12 w-fit mx-auto">
         {renderLinks()} {addLinkComponent()}
