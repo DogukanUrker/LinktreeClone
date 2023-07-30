@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router";
+import { useNavigate, Navigate } from "react-router";
 import { fetchToken, setToken, setUser } from "../utils/auth";
 import { useState } from "react";
 import axios from "axios";
@@ -32,9 +32,7 @@ export default function Register() {
     <div>
       <div className="grid h-screen place-items-center select-none">
         {fetchToken() ? (
-          <p className="text-2xl font-medium text-red-600">
-            You are already logged in!
-          </p>
+          <Navigate to="/profile" />
         ) : (
           <div className="container mx-auto w-64 p-4 bg-gray-50 rounded-2xl">
             <form className="flex items-stretch flex-wrap">

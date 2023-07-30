@@ -35,9 +35,7 @@ export default function Login() {
     <div>
       <div className="grid h-screen place-items-center select-none">
         {fetchToken() ? (
-          <p className="text-2xl font-medium text-red-600">
-            <Navigate to="/" />
-          </p>
+          <Navigate to="/profile" />
         ) : (
           <div className="container mx-auto w-64 p-4 bg-gray-50 rounded-2xl">
             <form className="flex items-stretch flex-wrap">
