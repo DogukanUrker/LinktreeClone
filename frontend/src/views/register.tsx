@@ -1,5 +1,5 @@
 import { useNavigate, Navigate } from "react-router";
-import { fetchToken, setToken, setUser } from "../utils/auth";
+import { fetchToken } from "../utils/auth";
 import { useState } from "react";
 import axios from "axios";
 import { API } from "../dependencies";
