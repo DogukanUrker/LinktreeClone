@@ -30,13 +30,13 @@ export default function Profile() {
               disabled
               type="text"
               value={link.text}
-              className="w-24 p-2 m-2 rounded-md bg-zinc-800/50 text-white text-center focus:outline-none"
+              className="w-28 p-2 m-2 rounded-md bg-zinc-800/50 text-white text-center focus:outline-none"
             />
             <input
               disabled
               type="text"
               value={link.link}
-              className="w-fit p-2 m-2 rounded-md bg-zinc-800/50 text-white focus:outline-none"
+              className="w-72 p-2 m-2 rounded-md bg-zinc-800/50 text-white text-center focus:outline-none"
             />
             <div className="w-fit text-center">
               <p className="text-white">Text Color:</p>
@@ -94,13 +94,13 @@ export default function Profile() {
       <form className="flex lg:flex-row flex-col justify-evenly items-center">
         <input
           type="text"
-          className="w-fit p-2 m-2 rounded-md outline-indigo-700 bg-zinc-800/50 text-white focus:outline-none focus:ring focus:ring-indigo-400"
+          className="w-28 text-center p-2 m-2 rounded-md outline-indigo-700 bg-zinc-800/50 text-white focus:outline-none focus:ring focus:ring-indigo-400"
           placeholder="Text"
           onChange={(event) => setText(event.target.value)}
         />
         <input
           type="text"
-          className="w-fit p-2 m-2 rounded-md outline-indigo-700 bg-zinc-800/50 text-white focus:outline-none focus:ring focus:ring-indigo-400"
+          className="w-72 text-center p-2 m-2 rounded-md outline-indigo-700 bg-zinc-800/50 text-white focus:outline-none focus:ring focus:ring-indigo-400"
           placeholder="URL"
           onChange={(event) => setLink(event.target.value)}
         />
