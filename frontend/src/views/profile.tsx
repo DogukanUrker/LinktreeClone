@@ -3,6 +3,7 @@ import axios from "axios";
 import { fetchUser } from "../utils/auth";
 import { useNavigate } from "react-router";
 import { HexColorPicker } from "react-colorful";
+import { API } from "../dependencies";
 export default function Profile() {
   const navigate = useNavigate();
   const Logout = () => {
@@ -17,7 +18,7 @@ export default function Profile() {
   const [bgColor, setBGColor] = useState("#000");
   useEffect(() => {
     axios
-      .get(`http://localhost:8000/fetchLinks/${fetchUser()}`)
+      .get(`${API}fetchLinks/${fetchUser()}`)
       .then((json) => setData(json.data));
   }, []);
   const renderLinks = () => {
@@ -26,21 +27,23 @@ export default function Profile() {
         <div>
           <form className="flex lg:flex-row flex-col justify-evenly items-center mb-4">
             <input
+              disabled
               type="text"
-              className="w-fit p-2 m-2 border-slate-400 border-2 rounded-md outline-indigo-500"
               value={link.text}
+              className="w-24 p-2 m-2 rounded-md bg-zinc-800/50 text-white text-center focus:outline-none"
             />
             <input
+              disabled
               type="text"
-              className="w-fit p-2 m-2 border-slate-400 border-2 rounded-md outline-indigo-500"
               value={link.link}
+              className="w-fit p-2 m-2 rounded-md bg-zinc-800/50 text-white focus:outline-none"
             />
             <div className="w-fit text-center">
-              <p>Text Color:</p>
+              <p className="text-white">Text Color:</p>
               <HexColorPicker color={link.textColor} className="m-4 " />
             </div>
             <div className="w-fit text-center">
-              <p>Background Color:</p>
+              <p className="text-white">Background Color:</p>
               <HexColorPicker color={link.bgColor} className="m-4 " />
             </div>
             <button
@@ -56,7 +59,7 @@ export default function Profile() {
   };
   const deleteLink = (linkText: string) => {
     axios
-      .delete(`http://localhost:8000/deleteLink/${linkText}`)
+      .delete(`${API}deleteLink/${linkText}`)
       .then(function (response) {
         console.log(response);
         navigate("/profile");
@@ -70,7 +73,7 @@ export default function Profile() {
       return;
     } else {
       axios
-        .post("http://localhost:8000/addLink/", {
+        .post(`${API}addLink/`, {
           author: fetchUser(),
           link: link,
           text: text,
@@ -91,18 +94,18 @@ export default function Profile() {
       <form className="flex lg:flex-row flex-col justify-evenly items-center">
         <input
           type="text"
-          className="w-fit p-2 m-2 border-slate-400 border-2 rounded-md outline-indigo-500"
+          className="w-fit p-2 m-2 rounded-md outline-indigo-700 bg-zinc-800/50 text-white focus:outline-none focus:ring focus:ring-indigo-400"
           placeholder="Text"
           onChange={(event) => setText(event.target.value)}
         />
         <input
           type="text"
-          className="w-fit p-2 m-2 border-slate-400 border-2 rounded-md outline-indigo-500"
+          className="w-fit p-2 m-2 rounded-md outline-indigo-700 bg-zinc-800/50 text-white focus:outline-none focus:ring focus:ring-indigo-400"
           placeholder="URL"
           onChange={(event) => setLink(event.target.value)}
         />
-        <div className="w-fit text-center">
-          <p>Text Color:</p>
+        <div className="w-fit text-center ">
+          <p className="text-white">Text Color:</p>
           <HexColorPicker
             color={textColor}
             onChange={setTextColor}
@@ -110,7 +113,7 @@ export default function Profile() {
           />
         </div>
         <div className="w-fit text-center">
-          <p>Background Color:</p>
+          <p className="text-white">Background Color:</p>
           <HexColorPicker
             color={bgColor}
             onChange={setBGColor}
@@ -137,7 +140,7 @@ export default function Profile() {
           Links Page
         </a>
         <button
-          className="inline-block ml-2 mr-3 py-2 px-6 bg-gray-50 hover:bg-gray-300 text-sm text-gray-900 font-bold rounded-md transition duration-200"
+          className="inline-block ml-2 mr-3 py-2 px-6 bg-gray-700 hover:bg-gray-800 text-sm text-white font-bold rounded-md transition duration-200"
           onClick={Logout}
         >
           sign out

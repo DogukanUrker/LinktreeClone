@@ -1,12 +1,13 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import { API } from "../dependencies";
 export default function Links() {
   let { userName } = useParams();
   const [data, setData] = useState([]);
   useEffect(() => {
     axios
-      .get(`http://localhost:8000/fetchLinks/${userName}`)
+      .get(`${API}fetchLinks/${userName}`)
       .then((json) => setData(json.data));
   }, []);
   const renderLinks = () => {

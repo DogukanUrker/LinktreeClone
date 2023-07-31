@@ -2,7 +2,7 @@ import { useNavigate, Navigate } from "react-router";
 import { fetchToken, setToken, setUser } from "../utils/auth";
 import { useState } from "react";
 import axios from "axios";
-
+import { API } from "../dependencies";
 export default function Register() {
   const navigate = useNavigate();
   const [username, setUsername] = useState("");
@@ -14,7 +14,7 @@ export default function Register() {
       return;
     } else {
       axios
-        .post("http://localhost:8000/userRegister/", {
+        .post(`${API}userRegister/`, {
           username: username,
           email: email,
           password: password,
@@ -34,26 +34,26 @@ export default function Register() {
         {fetchToken() ? (
           <Navigate to="/profile" />
         ) : (
-          <div className="container mx-auto w-64 p-4 bg-gray-50 rounded-2xl">
+          <div className="container mx-auto w-64 p-4 bg-zinc-800 rounded-2xl">
             <form className="flex items-stretch flex-wrap">
               <input
                 type="text"
                 autoComplete="new-password"
-                className="block mx-auto text-center my-2 border-2 border-solid border-indigo-400 p-1 rounded transition outline-indigo-700 focus:outline-none focus:ring focus:ring-indigo-400"
+                className="block mx-auto text-center my-2 border-2 border-solid border-indigo-400 bg-zinc-800/50 text-white p-1 rounded-md transition outline-indigo-700 focus:outline-none focus:ring focus:ring-indigo-400"
                 onChange={(event) => setUsername(event.target.value)}
                 placeholder="username"
               />
               <input
                 type="email"
                 autoComplete="new-password"
-                className="block mx-auto text-center my-2 border-2 border-solid border-indigo-400 p-1 rounded transition duration-200 outline-indigo-700 focus:outline-none focus:ring focus:ring-indigo-400"
+                className="block mx-auto text-center my-2 border-2 border-solid border-indigo-400 bg-zinc-800/50 text-white p-1 rounded-md transition duration-200 outline-indigo-700 focus:outline-none focus:ring focus:ring-indigo-400"
                 onChange={(event) => setEmail(event.target.value)}
                 placeholder="email"
               />
               <input
                 type="password"
                 autoComplete="new-password"
-                className="block mx-auto text-center my-2 border-2 border-solid border-indigo-400 p-1 rounded transition duration-200 outline-indigo-700 focus:outline-none focus:ring focus:ring-indigo-400"
+                className="block mx-auto text-center my-2 border-2 border-solid border-indigo-400 bg-zinc-800/50 text-white p-1 rounded-md transition duration-200 outline-indigo-700 focus:outline-none focus:ring focus:ring-indigo-400"
                 onChange={(event) => setPassword(event.target.value)}
                 placeholder="password"
               />

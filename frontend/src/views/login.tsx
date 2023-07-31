@@ -2,7 +2,7 @@ import { useNavigate, Navigate } from "react-router";
 import { fetchToken, setToken, setUser } from "../utils/auth";
 import { useState } from "react";
 import axios from "axios";
-
+import { API } from "../dependencies";
 export default function Login() {
   const navigate = useNavigate();
   const [username, setUsername] = useState("");
@@ -13,7 +13,7 @@ export default function Login() {
       return;
     } else {
       axios
-        .post("http://localhost:8000/login", {
+        .post(`${API}login`, {
           username: username,
           password: password,
         })
@@ -37,21 +37,21 @@ export default function Login() {
         {fetchToken() ? (
           <Navigate to="/profile" />
         ) : (
-          <div className="container mx-auto w-64 p-4 bg-gray-50 rounded-2xl">
+          <div className="container mx-auto w-64 p-4 bg-zinc-800 rounded-2xl">
             <form className="flex items-stretch flex-wrap">
               <input
                 type="text"
                 autoComplete="new-password"
                 onChange={(e) => setUsername(e.target.value)}
                 placeholder="username"
-                className="block mx-auto my-2 border-2 text-center border-solid border-indigo-400 p-1 rounded transition duration-200 outline-indigo-700 focus:outline-none focus:ring focus:ring-indigo-400"
+                className="block mx-auto my-2 border-2 text-center border-solid border-indigo-400 p-1 rounded-md transition duration-200 outline-indigo-700 bg-zinc-800/50 text-white focus:outline-none focus:ring focus:ring-indigo-400"
               />
               <input
                 type="password"
                 autoComplete="new-password"
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="password"
-                className="block mx-auto my-2 border-2 text-center border-solid border-indigo-400 p-1 rounded transition duration-200 outline-indigo-700 focus:outline-none focus:ring focus:ring-indigo-400"
+                className="block mx-auto my-2 border-2 text-center border-solid border-indigo-400 p-1 rounded-md transition duration-200 outline-indigo-700 bg-zinc-800/50 text-white focus:outline-none focus:ring focus:ring-indigo-400"
               />
               <button
                 type="button"
@@ -60,7 +60,7 @@ export default function Login() {
               >
                 Login
               </button>
-              <div className="mt-1 text-sm text-center w-full">
+              <div className="mt-1 text-sm text-center w-full text-white">
                 Don't have an account?&ensp;
                 <a
                   href="/register"
