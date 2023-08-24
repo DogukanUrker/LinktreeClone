@@ -28,6 +28,7 @@ Link in bio tool built with FastAPI & React.🔗
 - React-Colorful
 - React-Dom
 - React-Router-Dom
+- Tailwind
 - Axios
 - Node
 
