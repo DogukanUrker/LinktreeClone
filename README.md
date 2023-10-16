@@ -5,6 +5,7 @@ Link in bio tool built with FastAPI & React.🔗
 [Contact](mailto:dogukanurker@icloud.com)<br/>
 [Dogukan Urker](https://dogukanurker.com)
 
+### [Demo Video 📺](https://youtu.be/f7YvFlFv87Y)
 | [Desktop](https://github.com/DogukanUrker/LinktreeClone/tree/main/images/desktop) | [Mobile](https://github.com/DogukanUrker/LinktreeClone/tree/main/images/mobile) |
 | :-----------------------------------------------------------------------------: | :---------------------------------------------------------------------------: |
 |                    ![appDesktop](/images/desktop/links.png)                     |                    <img src="/images/mobile/links.png" alt="appMobile" width="600"/>                   |
