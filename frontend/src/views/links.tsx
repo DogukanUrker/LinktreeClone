@@ -4,6 +4,7 @@ import axios from "axios";
 import { API } from "../dependencies";
 export default function Links() {
   let { userName } = useParams();
+  document.title = userName;
   const [data, setData] = useState([]);
   useEffect(() => {
     axios
@@ -24,7 +25,6 @@ export default function Links() {
       );
     });
   };
-
   return (
     <>
       <div
